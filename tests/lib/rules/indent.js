@@ -4761,6 +4761,15 @@ ruleTester.run("indent", rule, {
                 var z;
             `,
             options: ["tab", { ignoredNodes: ["VariableDeclarator"] }]
+        },
+        {
+            code: unIndent`
+                [
+                    foo(),
+                    bar
+                ]
+            `,
+            options: ["tab", { ArrayExpression: "first", ignoredNodes: ["CallExpression"] }]
         }
     ],
 
